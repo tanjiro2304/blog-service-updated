@@ -15,14 +15,8 @@ import java.time.LocalDateTime;
 public class BlogPost {
 
     private Long blogPostId;
-
-    private Long userId;
-
     private String blogText;
-
     private LocalDateTime postDateTime;
-
     private String postTitle;
-
     private User user;
 }

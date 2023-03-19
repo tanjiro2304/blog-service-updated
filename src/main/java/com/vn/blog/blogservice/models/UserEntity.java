@@ -1,6 +1,7 @@
 package com.vn.blog.blogservice.models;
 
 import lombok.*;
+import org.springframework.data.util.Lazy;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,7 +21,7 @@ public class UserEntity {
     @Column(name="USER_NAME")
     String userName;
 
-    @OneToMany(mappedBy = "userEntity",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userEntity",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     List<BlogPostEntity> blogPostEntityList;
 
 }

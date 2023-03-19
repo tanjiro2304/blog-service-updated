@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RequestMapping("/blog")
 public class BlogPostController {
 
@@ -26,6 +26,7 @@ public class BlogPostController {
     }
 
     @GetMapping("/findById/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public BlogPost getPost(@PathVariable("id") Long id) throws SQLException, IOException {
         if(id == null){
             throw new RuntimeException("Invalid Id Please Try Again");
@@ -34,6 +35,7 @@ public class BlogPostController {
     }
 
     @GetMapping("/findAll")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<BlogPost> findAllPost() throws SQLException, IOException {
         return blogPostService.findAll();
     }
