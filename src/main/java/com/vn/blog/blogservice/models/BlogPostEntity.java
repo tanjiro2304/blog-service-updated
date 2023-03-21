@@ -19,6 +19,8 @@ public class BlogPostEntity {
     @Column(name = "POST_ID")
     Long postId;
 
+    @Column(name = "POST_DESCRIPTION")
+    String description;
     @Column(name="POST_CONTENT")
     Clob clob;
 
