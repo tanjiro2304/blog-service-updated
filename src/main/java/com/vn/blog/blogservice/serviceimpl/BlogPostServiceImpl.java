@@ -41,4 +41,9 @@ public class BlogPostServiceImpl implements BlogPostService {
                 }).
                 collect(Collectors.toList());    }
 
+
+    public void save(BlogPost blogPost) throws SQLException, IOException {
+        blogPostRepo.save(DtoConvertUtils.convertBlogDtoToEntity(blogPost)); ;
+    }
+
 }

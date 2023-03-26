@@ -36,6 +36,10 @@ public class DtoConvertUtils {
                 description(blog.getBlogDescription()).
                 clob(convertStringToClob(blog.getBlogText())).
                 postDateTime(blog.getPostDateTime()).
+                userEntity(UserEntity.builder().
+                        userId(blog.getUser().getUserId()).
+                        userName(blog.getUser().getUserName()).
+                        build()).
                 build();
     }
 
@@ -58,14 +62,7 @@ public class DtoConvertUtils {
     }
 
     public static Clob convertStringToClob(String blogContent) throws SQLException, IOException {
-        Connection conn = getConnection();
-        Clob clob = conn.createClob();
-        clob.setString(1,blogContent);
-        return clob;
-    }
 
-    private static Connection getConnection() throws SQLException {
-        // establish and return a database connection
-        return null;
+        return new javax.sql.rowset.serial.SerialClob(blogContent.toCharArray());
     }
 }

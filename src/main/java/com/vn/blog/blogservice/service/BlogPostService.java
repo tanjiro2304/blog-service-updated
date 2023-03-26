@@ -11,4 +11,6 @@ public interface BlogPostService {
     BlogPost findById(Long id) throws SQLException, IOException;
 
     List<BlogPost> findAll() throws SQLException, IOException ;
+
+    void save(BlogPost blogPost) throws SQLException, IOException;
 }
